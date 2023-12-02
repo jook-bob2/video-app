@@ -1,9 +1,8 @@
 'use client';
 
-import { fetchVideoList } from '@/net/api/main';
 import { MainVideoListResponse } from '@/types/models/home/main';
 import useFetch from '@/hooks/useFetch';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import ErrorBoundary from '../ErrorBoundary';
 import { HomeVideoListSkeleton } from '../ui/skeletons';
 import { ResponseType } from '@/types/network';
@@ -14,7 +13,6 @@ import { VideoJsPlayer } from 'video.js';
 
 export default function HomeVideoList() {
   const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
-  // const [player, setPlayer] = useState<VideoJsPlayer[]>([]);
   const playerList = useRef<VideoJsPlayer[]>([]);
 
   const { data, isLoading, error } = useFetch<ResponseType<MainVideoListResponse>, any>(`/videos`, 'GET');
