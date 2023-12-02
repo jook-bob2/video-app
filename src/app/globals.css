@@ -13,6 +13,10 @@ body {
     cursor: url('/images/cursor.png'), auto;
 }
 
+button, a {
+    cursor: url('/images/custom-pointer.png'), auto;
+}
+
 .custom-cursor {
     width: 20px;
     height: 20px;
