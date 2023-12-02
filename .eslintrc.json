@@ -1,3 +1,34 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "indent": "off",
+    "react/jsx-filename-extension": [
+      0
+    ],
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": [
+      0
+    ],
+    "@typescript-eslint/no-use-before-define": "off",
+    "import/no-unresolved": 0,
+    "import/named": 0,
+    "import/no-named-as-default": 0,
+    "react/display-name": "off",
+    "react/no-children-prop": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-explicit-any": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@next/next/no-img-element": "off",
+    "@typescript-eslint/dot-notation": "off",
+    "eslint-disable-next-line": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
+    "import/order": "off"
+  }
 }

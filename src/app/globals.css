@@ -2,26 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* Tailwind CSS */
+@layer utilities {
+    .cursor-pointer {
+      cursor: url('/images/custom-pointer.png'), auto;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    cursor: url('/images/cursor.png'), auto;
+}
+
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    background-color: #ff9900; /* 원하는 색상 설정 */
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s ease;
+}
+  
+.star {
+    width: 20px;
+    height: 20px;
+    background-color: #ffcc00; /* 별의 색상 설정 */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    position: absolute;
+    pointer-events: none;
+    animation: twinkle 1s infinite alternate;
+    z-index: 9999;
+}
+  
+@keyframes twinkle {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
 }
