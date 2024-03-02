@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
+  darkMode: 'class',
   theme: {
     screens: {
       mobile: '481px',
@@ -17,6 +18,34 @@ module.exports = {
           400: '#2589FE',
           500: '#0070F3',
           600: '#2F6FEB',
+        },
+        light: {
+          bg: {
+            DEFAULT: '#ECECEC',
+            1: '#D9D9D9',
+            2: '#ACACAC',
+            3: '#595959',
+          },
+          text: {
+            DEFAULT: '#212529',
+            1: '#CED4DA',
+            2: '#868E96',
+            3: '#495057',
+          },
+        },
+        dark: {
+          bg: {
+            DEFAULT: '#212529',
+            1: '#CED4DA',
+            2: '#868E96',
+            3: '#495057',
+          },
+          text: {
+            DEFAULT: '#ECECEC',
+            1: '#D9D9D9',
+            2: '#ACACAC',
+            3: '#595959',
+          },
         },
       },
     },

@@ -55,11 +55,11 @@ export default function HomeVideoList() {
   };
 
   return (
-    <div className='grid gap-4 grid-cols-1 laptop:grid-cols-3 desktop:grid-cols-5'>
+    <div className='grid grid-cols-1 gap-4 laptop:grid-cols-3 desktop:grid-cols-5'>
       {data?.data?.videoList?.map((video, index) => (
         <div
           key={index}
-          className='bg-white rounded-lg shadow-md p-4'>
+          className='p-4 bg-white rounded-lg shadow-md dark:bg-dark-bg'>
           <div
             onMouseEnter={() => onMouseEnter(index)}
             onMouseLeave={() => onMouseLeave(index)}
@@ -83,12 +83,12 @@ export default function HomeVideoList() {
           </div>
           <div className='mt-2 mb-2'>
             <h2
-              className='text-lg font-medium truncate'
+              className='text-lg font-medium truncate dark:text-dark-text-1'
               title={video.title}>
               {video.title}
             </h2>
             <p
-              className='text-gray-500 truncate'
+              className='text-gray-500 truncate dark:text-dark-text-2'
               title={video.desc}>
               {video.desc}
             </p>

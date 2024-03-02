@@ -38,7 +38,6 @@ export default function VideoPlayer({ id, src, type, options, setPlayerList }: P
       () => {
         if (setPlayerList) setPlayerList.current[id] = player;
 
-        console.log('플레이어 레뒤');
         player.on('pause', () => {
           console.log('pause!!!!');
         });
@@ -47,9 +46,7 @@ export default function VideoPlayer({ id, src, type, options, setPlayerList }: P
           console.log('waiting!!!!');
         });
 
-        player.on('loadeddata', () => {
-          console.log('loadeddata!!!!');
-        });
+        player.on('loadeddata', () => {});
 
         player.on('error', () => {
           console.log('error!!!!');
@@ -57,13 +54,9 @@ export default function VideoPlayer({ id, src, type, options, setPlayerList }: P
           console.log('@@@@@@@@@@@@@@@@@ Player error code :: ', code, '@@@@@@@@@@@@@@@@');
         });
 
-        player.on('dispose', () => {
-          console.log('dispose !!!');
-        });
+        player.on('dispose', () => {});
 
-        player.on('canplay', () => {
-          console.log('canplay');
-        });
+        player.on('canplay', () => {});
 
         player.on('playing', () => {
           console.log('playing');
