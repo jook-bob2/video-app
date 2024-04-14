@@ -46,12 +46,12 @@ export default function HomeVideoList() {
 
   const playVideo = (idx: number) => {
     console.log('play video', playerList.current[idx]);
-    playerList.current[idx].play();
+    if (playerList.current[idx]) playerList.current[idx].play();
   };
 
   const stopVideo = (idx: number) => {
     console.log('stop video', playerList.current[idx]);
-    playerList.current[idx].pause();
+    if (playerList.current[idx]) playerList.current[idx].pause();
   };
 
   return (
@@ -78,6 +78,7 @@ export default function HomeVideoList() {
                 aspectRatio: '16:9',
                 errorDisplay: false,
                 controls: true,
+                // poster: video.thumb,
               }}
             />
           </div>

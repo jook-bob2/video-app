@@ -11,13 +11,15 @@ interface VideoOptions extends VideoJsPlayerOptions {
 
 interface Props {
   id: number;
-  setPlayerList: React.MutableRefObject<VideoJsPlayer[]>;
+  setPlayerList?: React.MutableRefObject<VideoJsPlayer[]>;
   src: string;
   type: MimeType;
   options?: VideoOptions;
+  onReady?: (player: VideoJsPlayer) => void;
+  className?: string;
 }
 
-export default function VideoPlayer({ id, src, type, options, setPlayerList }: Props) {
+export default function VideoPlayer({ id, src, type, options, setPlayerList, onReady, className }: Props) {
   const videoRef = useRef<HTMLDivElement | null>(null);
   const playerRef = useRef<VideoJsPlayer | null>(null);
 
@@ -36,6 +38,7 @@ export default function VideoPlayer({ id, src, type, options, setPlayerList }: P
         ],
       },
       () => {
+        if (onReady) onReady(player);
         if (setPlayerList) setPlayerList.current[id] = player;
 
         player.on('pause', () => {
@@ -63,6 +66,13 @@ export default function VideoPlayer({ id, src, type, options, setPlayerList }: P
         });
       },
     ));
+
+    return () => {
+      if (player && !player.isDisposed()) {
+        player.dispose();
+        playerRef.current = null;
+      }
+    };
   }, []);
 
   // player clean up
@@ -78,6 +88,7 @@ export default function VideoPlayer({ id, src, type, options, setPlayerList }: P
 
   return (
     <div
+      className={className}
       data-vjs-player
       ref={videoRef}></div>
   );

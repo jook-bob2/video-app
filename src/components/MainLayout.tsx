@@ -15,16 +15,16 @@ export default function MainLayout({ children }: Props) {
             <Link href={'/'}>로고</Link>
           </div>
           <nav className='space-x-4'>
-            <a
-              href='#'
+            <Link
+              href='/'
               className='hover:underline'>
               홈
-            </a>
-            <a
-              href='#'
+            </Link>
+            <Link
+              href={'/shorts/1'}
               className='hover:underline'>
-              서비스
-            </a>
+              Shorts
+            </Link>
             <a
               href='#'
               className='hover:underline'>
@@ -39,7 +39,7 @@ export default function MainLayout({ children }: Props) {
           <ThemeToggle />
         </div>
       </header>
-      <main className='p-8 bg-slate-200 dark:bg-dark-bg'>{children}</main>
+      <main className='bg-slate-200 dark:bg-dark-bg'>{children}</main>
       <footer className='p-4 text-white dark:text-dark-text bg-gradient-to-r from-pink-300 to-orange-300 dark:from-dark-bg dark:to-dark-bg-1'>
         <div className='container flex items-center justify-center mx-auto'>
           <p>&copy; 2023 Next.js 14 경험해보기</p>

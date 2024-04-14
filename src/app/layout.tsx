@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${inter.className}`}
         suppressHydrationWarning={true}>
-        <CustomCursor />
+        {/* <CustomCursor /> */}
         <Provider>
           <MainLayout>{children}</MainLayout>
         </Provider>
